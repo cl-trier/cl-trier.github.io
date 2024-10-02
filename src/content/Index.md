@@ -1,0 +1,3 @@
+# Computational Linguistics at Trier University
+
+The Chair of Computational Linguistics at Trier University has been held since 2019 by Prof Dr Achim Rettinger, who heads the Computational Linguistics team. Computational Linguistics at Trier University focuses on the machine learning of knowledge representation, primarily from textual media. These are used to understand natural language, to analyse media and to integrate and provide knowledge
