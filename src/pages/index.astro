@@ -1,23 +1,18 @@
 ---
-import {Content} from '../content/Index.md';
+import Page from "@layouts/Page.astro";
 
+import { Content } from "@assets/Index.md";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<title>Computational Linguistics at Trier University</title>
-	</head>
-	<body>
-		<main class="container mx-auto px-4 my-12">
-			<article class="prose">
-				<Content />
-			</article>
-			<article class="prose mt-4">
-				<a href="nlp_introduction_2025.pdf" target="_blank">Freshers Guideline Download</a>
-			</article>
-		</main>
-	</body>
-</html>
+<Page title={"Computational Linguistics at Trier University"}>
+	<div class="container mx-auto px-4 my-12 prose">
+	<article>
+		<Content />
+	</article>
+	<article>
+		<a href="nlp_introduction_2025.pdf" target="_blank"
+			>Freshers Guideline Download</a
+		>
+	</article>
+	</div>
+</Page>
