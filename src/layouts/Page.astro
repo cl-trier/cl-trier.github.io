@@ -1,12 +1,14 @@
 ---
 import "@styles/global.css";
 
+import Navbar from "@layouts/partials/Navbar.astro";
+
 interface Props {
     title: string;
     description?: string;
 }
 
-const { title, description = "" } = Astro.props;
+const { title, description = ""} = Astro.props;
 ---
 
 <!doctype html>
@@ -18,6 +20,7 @@ const { title, description = "" } = Astro.props;
     <meta name="description" content={description} />
 
     <body>
+        <Navbar />
         <main class="min-h-[60vh] flex flex-col my-8 sm:my-16">
             <slot />
         </main>
