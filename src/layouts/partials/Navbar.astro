@@ -13,6 +13,10 @@ function getHref(id: string): string {
     return id === "index" ? "/" : `/${id}/`;
 }
 
+function isActiveRoute(href: string): boolean {
+    return Astro.url.pathname === href;
+}
+
 async function getMenuItems(): Promise<MenuItem[]> {
     const pages = await getCollection("pages");
     const menuItems = new Map<string, MenuItem>();
@@ -57,8 +61,12 @@ const menuItems = await getMenuItems();
                 {menuItems.map((item) => 
                     <li class="relative group">
                         <a
-                            class="hover:underline underline-offset-4"
+                            class:list={[
+                                "hover:underline underline-offset-4",
+                                { "font-bold underline": isActiveRoute(item.href) },
+                            ]}
                             href={item.href}
+                            aria-current={isActiveRoute(item.href) ? "page" : undefined}
                         >
                             {item.label}
                         </a>
@@ -67,8 +75,18 @@ const menuItems = await getMenuItems();
                                 {item.children.map((child) => (
                                     <li>
                                         <a
-                                            class="block px-2 hover:underline underline-offset-4"
+                                            class:list={[
+                                                "block px-2 hover:underline underline-offset-4",
+                                                {
+                                                    "font-bold underline": isActiveRoute(
+                                                        child.href,
+                                                    ),
+                                                },
+                                            ]}
                                             href={child.href}
+                                            aria-current={
+                                                isActiveRoute(child.href) ? "page" : undefined
+                                            }
                                         >
                                             {child.label}
                                         </a>
