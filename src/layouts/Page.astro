@@ -2,6 +2,7 @@
 import "@styles/global.css";
 
 import Navbar from "@layouts/partials/Navbar.astro";
+import Footer from "@layouts/partials/Footer.astro";
 
 interface Props {
     title: string;
@@ -24,5 +25,6 @@ const { title, description = ""} = Astro.props;
         <main class="min-h-[60vh] flex flex-col my-8 sm:my-16">
             <slot />
         </main>
+        <Footer />
     </body>
 </html>

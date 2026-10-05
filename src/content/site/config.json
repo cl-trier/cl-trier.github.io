@@ -1,3 +1,7 @@
 {
-    "name": "CL Department @ Trier University"
+    "name": "CL Department @ Trier University",
+    "footer": [
+        {"label": "Impressum / Legal Notice", "url": "../../legal/impressum/"},
+        {"label": "Privacy Policy / Datenschutzerklärung", "url": "../../legal/datenschutz/"}
+    ]
 }

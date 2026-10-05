@@ -1,0 +1,12 @@
+---
+import CONFIG from "@content/site/config.json";
+---
+<footer class="container mx-auto py-6">
+    <nav class="flex justify-center">
+        <ul class="flex gap-6">
+            {CONFIG.footer.map((item) => (
+                <li class="text-sm text-slate-500"><a href={item.url}>{item.label}</a></li>
+            ))}
+        </ul>
+    </nav>
+</footer>

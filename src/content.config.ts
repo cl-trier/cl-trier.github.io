@@ -10,6 +10,7 @@ export const collections = {
             menuLabel: z.string(),
             metaTitle: z.string(),
             metaDescription: z.string().default(""),
+            navIndexed: z.boolean().default(true)
         }),
     })
 };
