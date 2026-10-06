@@ -7,7 +7,9 @@ navIndexed: False
 # Datenschutzerklärung / Privacy Policy
 
 Für allgemeine Hinweise zum Datenschutz, Ihren Betroffenenrechten sowie den Kontaktdaten 
-des Datenschutzbeauftragten gilt die allgemeine [Datenschutzerklärung der Universität Trier](https://www.uni-trier.de/datenschutzerklaerung).
+des Datenschutzbeauftragten gilt die allgemeine Datenschutzerklärung der Universität Trier: <https://www.uni-trier.de/datenschutzerklaerung>.
+
+---
 
 Ergänzend gilt für diese Webpräsenz:
 
