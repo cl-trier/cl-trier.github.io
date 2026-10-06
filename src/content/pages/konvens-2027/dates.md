@@ -6,6 +6,8 @@ metaDescription: "Dates & Deadlines (tbc) | KONVENS 2027 @ Trier University"
 
 # Dates & Deadlines (tbc)
 
+**Important:** The following deadlines will undergo breaking changes and are currently rough outlines copied from KONVENS 2026.
+
 | Conference Timeline | Dates :: Sep. 06. – 09., 2027 |
 | :--- | :--- |
 | Workshops, Tutorials, GermEval | Sep. 06. (full) & 7. (half), 2027 |

@@ -6,4 +6,4 @@ metaDescription: "Calls for Workshops, Tutorials, Papers, etc. | KONVENS 2027 @ 
 
 # Calls for Participation
 
-soon to be announced
+**soon to be announced**
