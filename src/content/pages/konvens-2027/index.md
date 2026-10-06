@@ -8,6 +8,6 @@ metaDescription: "KONVENS 2027 at Trier University."
 
 ![Header - Default | Kennen Sie diese Stadt?](assets/default-header.webp)
 
-**save the date: KW36, Sep. 06. to 10., 2027**
+**save the date: KW36, Sep. 06. to 09., 2027**
 
 more following soon
