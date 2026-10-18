@@ -1,0 +1,23 @@
+---
+import { getCollection } from "astro:content";
+import PublicationCard from "@components/PublicationCard.astro";
+
+interface Props {
+    author?: string;
+    limit?: number;
+}
+
+const { author, limit } = Astro.props;
+
+let publications = await getCollection("publications", ({ data }) =>
+    author ? data.authors.some((a) => a.id === author) : true
+);
+publications.sort((a, b) => b.data.year - a.data.year || a.data.title.localeCompare(b.data.title));
+if (limit) publications = publications.slice(0, limit);
+---
+
+<ul class="not-prose flex flex-col gap-6 my-8">
+    {publications.map((publication) => (
+        <li><PublicationCard publication={publication} /></li>
+    ))}
+</ul>

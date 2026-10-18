@@ -1,0 +1,49 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { getEntry, render } from "astro:content";
+import { Image } from "astro:assets";
+
+interface Props {
+    project: CollectionEntry<"projects">;
+}
+
+const { project } = Astro.props;
+const { title, logo, funding, duration, contact } = project.data;
+const { Content } = await render(project);
+const person = await getEntry(contact);
+
+const formatMonth = (date: Date) =>
+    date.toLocaleDateString("en-GB", { month: "short", year: "numeric", timeZone: "UTC" });
+const period = `${formatMonth(duration.start)} – ${duration.end ? formatMonth(duration.end) : "ongoing"}`;
+---
+
+<article id={`project-${project.id}`} class="not-prose flex flex-col gap-4 sm:flex-row">
+    {logo && (
+        <Image
+            src={logo}
+            alt={`${title} logo`}
+            width={96}
+            class="size-24 shrink-0 object-contain"
+        />
+    )}
+    <div class="flex flex-col gap-2">
+        <header>
+            <h3 class="text-lg font-bold">{title}</h3>
+            <dl class="grid grid-cols-[auto_1fr] gap-x-3 text-sm text-slate-500">
+                <dt>Funding</dt>
+                <dd>{funding}</dd>
+                <dt>Duration</dt>
+                <dd>{period}</dd>
+                <dt>Contact</dt>
+                <dd>
+                    {person
+                        ? <a class="underline underline-offset-4" href={`#person-${person.id}`}>{person.data.name}</a>
+                        : contact.id}
+                </dd>
+            </dl>
+        </header>
+        <div class="prose prose-sm">
+            <Content />
+        </div>
+    </div>
+</article>

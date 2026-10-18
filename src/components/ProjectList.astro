@@ -1,0 +1,23 @@
+---
+import { getCollection } from "astro:content";
+import ProjectCard from "@components/ProjectCard.astro";
+
+interface Props {
+    contact?: string;
+    limit?: number;
+}
+
+const { contact, limit } = Astro.props;
+
+let projects = await getCollection("projects", ({ data }) =>
+    contact ? data.contact.id === contact : true
+);
+projects.sort((a, b) => b.data.duration.start.getTime() - a.data.duration.start.getTime());
+if (limit) projects = projects.slice(0, limit);
+---
+
+<ul class="not-prose flex flex-col gap-10 my-8">
+    {projects.map((project) => (
+        <li><ProjectCard project={project} /></li>
+    ))}
+</ul>

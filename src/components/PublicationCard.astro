@@ -1,0 +1,33 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { getEntries, render } from "astro:content";
+
+interface Props {
+    publication: CollectionEntry<"publications">;
+}
+
+const { publication } = Astro.props;
+const { title, authors, venue, year, url } = publication.data;
+const { Content } = await render(publication);
+const persons = await getEntries(authors);
+---
+
+<article id={`publication-${publication.id}`} class="not-prose flex flex-col gap-1">
+    <h3 class="font-bold">
+        {url ? <a class="underline underline-offset-4" href={url}>{title}</a> : title}
+    </h3>
+    <p class="text-sm">
+        {persons.map((person, i) => (
+            <>
+                <a class="hover:underline underline-offset-4" href={`#person-${person.id}`}>{person.data.name}</a>{i < persons.length - 1 && ", "}
+            </>
+        ))}
+    </p>
+    <p class="text-sm italic text-slate-500">{venue}, {year}</p>
+    <details class="text-sm">
+        <summary class="cursor-pointer text-slate-500 hover:underline underline-offset-4">Abstract</summary>
+        <div class="prose prose-sm mt-2">
+            <Content />
+        </div>
+    </details>
+</article>
