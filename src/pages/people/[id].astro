@@ -1,0 +1,25 @@
+---
+import { getCollection } from "astro:content";
+import CONFIG from "@content/site/config.json";
+import Article from "@layouts/Article.astro";
+import PersonCard from "@components/PersonCard.astro";
+import ProjectList from "@components/ProjectList.astro";
+import PublicationList from "@components/PublicationList.astro";
+
+export async function getStaticPaths() {
+    const persons = await getCollection("persons");
+    return persons.map((person) => ({ params: { id: person.id }, props: { person } }));
+}
+
+const { person } = Astro.props;
+---
+
+<Article title={`${person.data.name} | People | ${CONFIG.name}`}>
+    <PersonCard person={person} />
+    <ProjectList person={person.id}>
+        <h2>Projects</h2>
+    </ProjectList>
+    <PublicationList author={person.id}>
+        <h2>Publications</h2>
+    </PublicationList>
+</Article>

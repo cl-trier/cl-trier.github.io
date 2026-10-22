@@ -1,0 +1,16 @@
+---
+interface Props {
+    href: string;
+    active: boolean;
+    class?: string;
+}
+
+const { href, active, class: className } = Astro.props;
+---
+
+<a
+    class:list={[className, "hover:underline underline-offset-4", { "font-bold underline": active }]}
+    href={href}
+>
+    <slot />
+</a>

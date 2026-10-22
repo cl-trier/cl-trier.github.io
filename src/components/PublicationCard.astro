@@ -1,29 +1,36 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import { getEntries, render } from "astro:content";
+import { getEntries, getEntry, render } from "astro:content";
+import { personHref, projectHref } from "@lib/content";
 
 interface Props {
     publication: CollectionEntry<"publications">;
 }
 
 const { publication } = Astro.props;
-const { title, authors, venue, year, url } = publication.data;
+const { title, authors, venue, year, link, project } = publication.data;
 const { Content } = await render(publication);
 const persons = await getEntries(authors);
+const projectEntry = project ? await getEntry(project) : undefined;
 ---
 
 <article id={`publication-${publication.id}`} class="not-prose flex flex-col gap-1">
     <h3 class="font-bold">
-        {url ? <a class="underline underline-offset-4" href={url}>{title}</a> : title}
+        {link ? <a class="underline underline-offset-4" href={link}>{title}</a> : title}
     </h3>
     <p class="text-sm">
         {persons.map((person, i) => (
             <>
-                <a class="hover:underline underline-offset-4" href={`#person-${person.id}`}>{person.data.name}</a>{i < persons.length - 1 && ", "}
+                <a class="hover:underline underline-offset-4" href={personHref(person.id)}>{person.data.name}</a>{i < persons.length - 1 && ", "}
             </>
         ))}
     </p>
     <p class="text-sm italic text-slate-500">{venue}, {year}</p>
+    {projectEntry && (
+        <p class="text-sm text-slate-500">
+            Project: <a class="underline underline-offset-4" href={projectHref(projectEntry.id)}>{projectEntry.data.title}</a>
+        </p>
+    )}
     <details class="text-sm">
         <summary class="cursor-pointer text-slate-500 hover:underline underline-offset-4">Abstract</summary>
         <div class="prose prose-sm mt-2">

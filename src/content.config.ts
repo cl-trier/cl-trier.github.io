@@ -28,7 +28,7 @@ export const collections = {
         }),
     }),
 
-    // meta: logo, title, funding, duration, contact (person) | content: project description
+    // meta: logo, title, funding, duration, contact (person), involved (persons) | content: project description
     projects: defineCollection({
         loader: glob({ base: './src/content/projects', pattern: '**/*.{md,mdx}' }),
         schema: ({ image }) => z.object({
@@ -40,10 +40,11 @@ export const collections = {
                 end: z.coerce.date().optional(),   // omit for ongoing projects
             }),
             contact: reference('persons'),
+            involved: z.array(reference('persons')).default([]),
         }),
     }),
 
-    // meta: title, authors (persons), venue | content: abstract
+    // meta: title, authors (persons), venue, year, link, project | content: abstract
     publications: defineCollection({
         loader: glob({ base: './src/content/publications', pattern: '**/*.{md,mdx}' }),
         schema: z.object({
@@ -51,7 +52,8 @@ export const collections = {
             authors: z.array(reference('persons')).min(1),
             venue: z.string(),
             year: z.number().int(),
-            url: z.string().optional(),
+            link: z.string().optional(),
+            project: reference('projects').optional(),
         }),
     }),
 };

@@ -2,6 +2,7 @@
 import type { CollectionEntry } from "astro:content";
 import { getEntry, render } from "astro:content";
 import { Image } from "astro:assets";
+import { personHref, projectHref } from "@lib/content";
 
 interface Props {
     project: CollectionEntry<"projects">;
@@ -28,7 +29,9 @@ const period = `${formatMonth(duration.start)} – ${duration.end ? formatMonth(
     )}
     <div class="flex flex-col gap-2">
         <header>
-            <h3 class="text-lg font-bold">{title}</h3>
+            <h3 class="text-lg font-bold">
+                <a class="hover:underline underline-offset-4" href={projectHref(project.id)}>{title}</a>
+            </h3>
             <dl class="grid grid-cols-[auto_1fr] gap-x-3 text-sm text-slate-500">
                 <dt>Funding</dt>
                 <dd>{funding}</dd>
@@ -37,7 +40,7 @@ const period = `${formatMonth(duration.start)} – ${duration.end ? formatMonth(
                 <dt>Contact</dt>
                 <dd>
                     {person
-                        ? <a class="underline underline-offset-4" href={`#person-${person.id}`}>{person.data.name}</a>
+                        ? <a class="underline underline-offset-4" href={personHref(person.id)}>{person.data.name}</a>
                         : contact.id}
                 </dd>
             </dl>

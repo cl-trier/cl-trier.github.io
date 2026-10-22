@@ -1,0 +1,10 @@
+---
+import CONFIG from "@content/site/config.json";
+import Article from "@layouts/Article.astro";
+import PersonList from "@components/PersonList.astro";
+---
+
+<Article title={`People | ${CONFIG.name}`}>
+    <h1>People</h1>
+    <PersonList />
+</Article>

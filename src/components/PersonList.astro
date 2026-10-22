@@ -1,5 +1,5 @@
 ---
-import { getCollection } from "astro:content";
+import { getPersons } from "@lib/content";
 import PersonCard from "@components/PersonCard.astro";
 
 interface Props {
@@ -9,15 +9,17 @@ interface Props {
 
 const { ids, limit } = Astro.props;
 
-let persons = await getCollection("persons");
-persons = ids
-    ? ids.flatMap((id) => persons.filter((p) => p.id === id))
-    : persons.sort((a, b) => a.data.name.localeCompare(b.data.name));
+let persons = await getPersons(ids);
 if (limit) persons = persons.slice(0, limit);
 ---
 
-<ul class="not-prose flex flex-col gap-10 my-8">
-    {persons.map((person) => (
-        <li><PersonCard person={person} /></li>
-    ))}
-</ul>
+{persons.length > 0 && (
+    <>
+        <slot />
+        <ul class="not-prose flex flex-col gap-10 my-8">
+            {persons.map((person) => (
+                <li><PersonCard person={person} /></li>
+            ))}
+        </ul>
+    </>
+)}

@@ -1,0 +1,21 @@
+---
+import { getCollection } from "astro:content";
+import CONFIG from "@content/site/config.json";
+import Article from "@layouts/Article.astro";
+import ProjectCard from "@components/ProjectCard.astro";
+import PersonList from "@components/PersonList.astro";
+
+export async function getStaticPaths() {
+    const projects = await getCollection("projects");
+    return projects.map((project) => ({ params: { id: project.id }, props: { project } }));
+}
+
+const { project } = Astro.props;
+---
+
+<Article title={`${project.data.title} | Projects | ${CONFIG.name}`}>
+    <ProjectCard project={project} />
+    <PersonList ids={project.data.involved.map((person) => person.id)}>
+        <h2>Involved</h2>
+    </PersonList>
+</Article>

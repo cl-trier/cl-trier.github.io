@@ -1,5 +1,6 @@
 {
     "name": "Computational Linguistics Trier",
+    "shortName": "CL-Trier",
     "footer": [
         {"label": "Impressum / Legal Notice", "url": "../../legal/impressum/"},
         {"label": "Privacy Policy / Datenschutzerklärung", "url": "../../legal/datenschutz/"}
