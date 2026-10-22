@@ -1,11 +1,13 @@
 ---
+import { currentPath } from "@lib/menu";
+
 interface Props {
     href: string;
-    active: boolean;
     class?: string;
 }
 
-const { href, active, class: className } = Astro.props;
+const { href, class: className } = Astro.props;
+const active = currentPath(Astro.url) === href;
 ---
 
 <a

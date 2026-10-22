@@ -1,0 +1,35 @@
+---
+import type { MenuItem } from "@lib/menu";
+import NavLink from "@layouts/partials/NavLink.astro";
+
+interface Props {
+    items: MenuItem[];
+    vertical?: boolean; // mobile: stacked, sub pages always visible; desktop: in a row, sub pages on hover
+}
+
+const { items, vertical = false } = Astro.props;
+---
+
+<ul class:list={["flex", vertical ? "flex-col gap-2" : "gap-8 whitespace-nowrap"]}>
+    {items.map((item) => (
+        <li class:list={{ "relative group": !vertical }}>
+            <NavLink href={item.href}>{item.label}</NavLink>
+            {item.children.length > 0 && (
+                <ul
+                    class:list={[
+                        "flex-col gap-2",
+                        vertical
+                            ? "flex mt-2 pl-4"
+                            : "absolute right-0 top-full z-10 hidden min-w-max bg-slate-100 p-4 group-hover:flex group-focus-within:flex",
+                    ]}
+                >
+                    {item.children.map((child) => (
+                        <li>
+                            <NavLink href={child.href} class="text-sm block px-2">{child.label}</NavLink>
+                        </li>
+                    ))}
+                </ul>
+            )}
+        </li>
+    ))}
+</ul>

@@ -10,7 +10,8 @@ export const collections = {
             menuLabel: z.string(),
             metaTitle: z.string(),
             metaDescription: z.string().default(""),
-            navIndexed: z.boolean().default(true)
+            navIndexed: z.boolean().default(true),
+            navSeparated: z.boolean().default(false), // shown on the right of the main menu, after a divider
         }),
     }),
 
@@ -28,11 +29,12 @@ export const collections = {
         }),
     }),
 
-    // meta: logo, title, funding, duration, contact (person), involved (persons) | content: project description
+    // meta: logo, title, shortTitle, funding, duration, contact (person), involved (persons) | content: project description
     projects: defineCollection({
         loader: glob({ base: './src/content/projects', pattern: '**/*.{md,mdx}' }),
         schema: ({ image }) => z.object({
             title: z.string(),
+            shortTitle: z.string(),
             logo: image().optional(),
             funding: z.string(),
             duration: z.object({

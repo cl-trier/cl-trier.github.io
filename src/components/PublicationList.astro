@@ -4,12 +4,13 @@ import PublicationCard from "@components/PublicationCard.astro";
 
 interface Props {
     author?: string;
+    project?: string;
     limit?: number;
 }
 
-const { author, limit } = Astro.props;
+const { author, project, limit } = Astro.props;
 
-let publications = await getPublications(author);
+let publications = await getPublications(author, project);
 if (limit) publications = publications.slice(0, limit);
 ---
 

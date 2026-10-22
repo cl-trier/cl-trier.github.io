@@ -1,121 +1,50 @@
 ---
-import { getCollection } from "astro:content";
-
 import CONFIG from "@content/site/config.json";
-import NavLink from "@layouts/partials/NavLink.astro";
-import { ROUTES, getPersons, getProjects, personHref, projectHref } from "@lib/content";
+import NavMenu from "@layouts/partials/NavMenu.astro";
+import { currentPath, findSection, getMenuItems } from "@lib/menu";
 
-interface MenuItem {
-    label: string;
-    href: string;
-    children: MenuItem[];
-}
+const menuItems = await getMenuItems();
+const section = findSection(menuItems, currentPath(Astro.url));
 
-const pathname = Astro.url.pathname.replace(/\/?$/, "/");
-
-function getHref(id: string): string {
-    return id === "index" ? "/" : `/${id}/`;
-}
-
-function isActiveRoute(href: string): boolean {
-    return pathname === href;
-}
-
-async function getPageItems(): Promise<MenuItem[]> {
-    const pages = await getCollection("pages", ({ data }) => data.navIndexed);
-    const menuItems = new Map<string, MenuItem>();
-    const topLevelItems: MenuItem[] = [];
-
-    for (const page of pages) {
-        menuItems.set(page.id, {
-            label: page.data.menuLabel,
-            href: getHref(page.id),
-            children: [],
-        });
-    }
-
-    for (const page of pages) {
-        const item = menuItems.get(page.id);
-        const parentId = page.id.includes("/")
-            ? page.id.slice(0, page.id.lastIndexOf("/"))
-            : undefined;
-        const parent = parentId ? menuItems.get(parentId) : undefined;
-
-        if (!item || !parent) {
-            if (item) topLevelItems.push(item);
-            continue;
-        }
-
-        parent.children.push(item);
-    }
-
-    return topLevelItems;
-}
-
-async function getCollectionItems(): Promise<MenuItem[]> {
-    const projects = await getProjects();
-    const persons = await getPersons();
-
-    return [
-        {
-            label: "Projects",
-            href: ROUTES.projects,
-            children: projects.map((p) => ({ label: p.data.title, href: projectHref(p.id), children: [] })),
-        },
-        {
-            label: "People",
-            href: ROUTES.people,
-            children: persons.map((p) => ({ label: p.data.name, href: personHref(p.id), children: [] })),
-        },
-    ];
-}
-
-const menuItems = [...(await getPageItems()), ...(await getCollectionItems())];
-
-// a section (top-level item with sub pages) replaces the main menu while it or one of its sub pages is active
-const section = menuItems.find(
-    (item) => item.href !== "/" && item.children.length > 0 && pathname.startsWith(item.href)
-);
+// menu groups, separated by a divider: in a section only its sub pages, otherwise main and separated items
+const groups = section
+    ? [section.children]
+    : [menuItems.filter((item) => !item.separated), menuItems.filter((item) => item.separated)];
+const menus = groups.filter((group) => group.length > 0);
 ---
 
-<nav class="container mx-auto px-4 my-6">
+<nav class="container relative mx-auto px-4 my-6">
     <div class="flex gap-12 items-center justify-between">
         {section ? (
-            <>
-                <div class="flex shrink-0 flex-col">
-                    <a class="text-lg font-bold" href={section.href}>{section.label}</a>
-                    <a class="text-xs text-slate-500 hover:underline underline-offset-4" href="/">← {CONFIG.shortName}</a>
-                </div>
-                <ul class="flex min-w-0 gap-8 overflow-x-auto whitespace-nowrap">
-                    {section.children.map((child) => (
-                        <li>
-                            <NavLink href={child.href} active={isActiveRoute(child.href)}>{child.label}</NavLink>
-                        </li>
-                    ))}
-                </ul>
-            </>
+            <div class="flex shrink-0 flex-col">
+                <a class="text-lg font-bold" href={section.href}>{section.label}</a>
+                <a class="text-xs text-slate-500 hover:underline underline-offset-4" href="/">← {CONFIG.shortName}</a>
+            </div>
         ) : (
-            <>
-                <a class="text-lg font-bold" href="/">{CONFIG.name}</a>
-                <div class="relative">
-                    <ul class="flex flex-wrap gap-8">
-                        {menuItems.map((item) => (
-                            <li class="relative group">
-                                <NavLink href={item.href} active={isActiveRoute(item.href)}>{item.label}</NavLink>
-                                {item.children.length > 0 && (
-                                    <ul class="absolute left-0 top-full z-10 hidden min-w-max flex-col gap-2 bg-slate-100 p-4 group-hover:flex group-focus-within:flex">
-                                        {item.children.map((child) => (
-                                            <li>
-                                                <NavLink href={child.href} active={isActiveRoute(child.href)} class="text-sm block px-2">{child.label}</NavLink>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                )}
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-            </>
+            <a class="text-lg font-bold" href="/">{CONFIG.name}</a>
         )}
+
+        <!-- desktop: in a row, horizontally scrollable within a section -->
+        <div class:list={["hidden md:flex min-w-0 items-center gap-8", { "overflow-x-auto": section }]}>
+            {menus.map((items, i) => (
+                <>
+                    {i > 0 && <span class="text-slate-300" aria-hidden="true">|</span>}
+                    <NavMenu items={items} />
+                </>
+            ))}
+        </div>
+
+        <!-- mobile: toggled panel below the navbar -->
+        <details class="md:hidden">
+            <summary class="cursor-pointer list-none hover:underline underline-offset-4 [&::-webkit-details-marker]:hidden">Menu</summary>
+            <div class="absolute inset-x-0 top-full z-20 mt-2 flex flex-col gap-4 bg-slate-100 p-4">
+                {menus.map((items, i) => (
+                    <>
+                        {i > 0 && <hr class="border-slate-300" />}
+                        <NavMenu items={items} vertical />
+                    </>
+                ))}
+            </div>
+        </details>
     </div>
 </nav>

@@ -4,6 +4,7 @@ import CONFIG from "@content/site/config.json";
 import Article from "@layouts/Article.astro";
 import ProjectCard from "@components/ProjectCard.astro";
 import PersonList from "@components/PersonList.astro";
+import PublicationList from "@components/PublicationList.astro";
 
 export async function getStaticPaths() {
     const projects = await getCollection("projects");
@@ -13,9 +14,13 @@ export async function getStaticPaths() {
 const { project } = Astro.props;
 ---
 
-<Article title={`${project.data.title} | Projects | ${CONFIG.name}`}>
+<Article title={`${project.data.shortTitle} | Projects | ${CONFIG.name}`}>
+    <h1>{project.data.shortTitle}</h1>
     <ProjectCard project={project} />
     <PersonList ids={project.data.involved.map((person) => person.id)}>
         <h2>Involved</h2>
     </PersonList>
+    <PublicationList project={project.id}>
+        <h2>Publications</h2>
+    </PublicationList>
 </Article>

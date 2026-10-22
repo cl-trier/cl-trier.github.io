@@ -1,5 +1,6 @@
 ---
 menuLabel: "KONVENS 2027"
+navSeparated: true
 metaTitle: "KONVENS 2027 @ Trier University"
 metaDescription: "KONVENS 2027 at Trier University."
 ---
