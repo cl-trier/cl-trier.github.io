@@ -1,5 +1,5 @@
 ---
-name: "Univ.-Prof. Dr. Achim Rettinger"
+name: "Achim Rettinger"
 position: "Chair of Computational Linguistics"
 image: "portraits/achim-rettinger.svg"
 links:
