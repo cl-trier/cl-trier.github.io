@@ -17,8 +17,8 @@ metaDescription: "Dates & Deadlines (tbc) | KONVENS 2027 @ Trier University"
 
 | Participation Timeline | Dates :: Nov. 2026 - Aug. 2027 |
 | :--- | :--- |
-| **GermEval** :: Proposal Deadline | Nov. 29. (Sun), 2026 |
-| **GermEval** :: Notification of Acceptance | Dec. 14. (Mon), 2026 |
+| **GermEval** :: Proposal Deadline | Dec. 13. (Sun), 2026 |
+| **GermEval** :: Notification of Acceptance | Jan. 11. (Mon), 2027 |
 | **Workshop & Tutorial** :: Proposal Deadline | Jan. 24. (Sun), 2027 |
 | **Workshop & Tutorial** :: Notification of Acceptance | Feb. 15. (Mon), 2027 |
 | **Conference Paper** :: Submission Deadline | Apr. 25 (Sun), 2027 |
