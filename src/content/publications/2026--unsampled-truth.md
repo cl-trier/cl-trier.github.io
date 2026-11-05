@@ -2,8 +2,6 @@
 title: "The Unsampled Truth: Quantifying Prompt Artifacts in LM Psychometrics"
 authors:
   - nils-schwager
-  - christoph-hau
-  - simon-münker
   - achim-rettinger
 venue: "Findings of EMNLP"
 year: 2026
