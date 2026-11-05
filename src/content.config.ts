@@ -46,12 +46,12 @@ export const collections = {
         }),
     }),
 
-    // meta: title, authors (persons), venue, year, link, project | content: abstract
+    // meta: title, authors (person ids link to profiles; other entries are shown as plain names), venue, year, link, project | content: abstract
     publications: defineCollection({
         loader: glob({ base: './src/content/publications', pattern: '**/*.{md,mdx}' }),
         schema: z.object({
             title: z.string(),
-            authors: z.array(reference('persons')).min(1),
+            authors: z.array(z.string()).default([]),
             venue: z.string(),
             year: z.number().int(),
             link: z.string().optional(),

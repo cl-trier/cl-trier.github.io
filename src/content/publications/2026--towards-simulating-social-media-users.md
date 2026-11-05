@@ -2,6 +2,8 @@
 title: "Towards Simulating Social Media Users with LLMs: Evaluating the Operational Validity of Conditioned Comment Prediction"
 authors:
   - nils-schwager
+  - simon-münker
+  - alistair-plum
   - achim-rettinger
 venue: "WASSA @ EACL"
 year: 2026

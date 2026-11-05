@@ -30,7 +30,7 @@ export async function getPersons(ids?: string[]) {
 // publications, newest first then by title; optionally only those of an author and/or a project
 export async function getPublications(author?: string, project?: string) {
     const publications = await getCollection("publications", ({ data }) =>
-        (!author || data.authors.some((a) => a.id === author)) &&
+        (!author || data.authors.includes(author)) &&
         (!project || data.project?.id === project)
     );
     return publications.sort((a, b) => b.data.year - a.data.year || a.data.title.localeCompare(b.data.title));

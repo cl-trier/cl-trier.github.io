@@ -2,6 +2,8 @@
 title: "Evaluating Token Probabilities as Confidence Estimators in Human Behavior Simulations: A Case Study in Luxembourgish Next Like Prediction"
 authors:
   - nils-schwager
+  - simon-münker
+  - alistair-plum
   - achim-rettinger
 venue: "W-NUT @ EMNLP"
 year: 2026

@@ -1,6 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import { getEntries, getEntry, render } from "astro:content";
+import { getCollection, getEntry, render } from "astro:content";
 import { personHref, projectHref } from "@lib/content";
 
 interface Props {
@@ -10,7 +10,16 @@ interface Props {
 const { publication } = Astro.props;
 const { title, authors, venue, year, link, project } = publication.data;
 const { Content } = await render(publication);
-const persons = await getEntries(authors);
+const allPersons = await getCollection("persons");
+// authors with a profile are linked; others are shown as given (slugs like "jane-doe" become "Jane Doe")
+const prettify = (s: string) =>
+    /\s/.test(s) ? s : s.split("-").map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
+const persons = authors.map((author) => {
+    const person = allPersons.find((p) => p.id === author);
+    return person
+        ? { name: person.data.name, href: personHref(person.id) }
+        : { name: prettify(author), href: undefined };
+});
 const projectEntry = project ? await getEntry(project) : undefined;
 ---
 
@@ -21,14 +30,16 @@ const projectEntry = project ? await getEntry(project) : undefined;
     <p class="text-sm">
         {persons.map((person, i) => (
             <>
-                <a class="hover:underline underline-offset-4" href={personHref(person.id)}>{person.data.name}</a>{i < persons.length - 1 && ", "}
+                {person.href
+                    ? <a class="hover:underline underline-offset-4" href={person.href}>{person.name}</a>
+                    : person.name}{i < persons.length - 1 && ", "}
             </>
         ))}
     </p>
     <p class="text-sm italic text-slate-500">{venue}, {year}</p>
     {projectEntry && (
         <p class="text-sm text-slate-500">
-            Project: <a class="underline underline-offset-4" href={projectHref(projectEntry.id)}>{projectEntry.data.title}</a>
+            Project: <a class="underline underline-offset-4" href={projectHref(projectEntry.id)}>{projectEntry.data.shortTitle}</a>
         </p>
     )}
     <details class="text-sm">
