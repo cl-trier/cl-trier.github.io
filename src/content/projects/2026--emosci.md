@@ -2,6 +2,7 @@
 title: "Exploring the Interplay between Emotions and Distortion in Informal Science Discourse"
 shortTitle: "EMO-SCI"
 funding: "German Research Foundation (DFG) / French National Research Agency (ANR)"
+logo: "logos/emo-sci.png"
 duration:
   start: 2026-03-01
   end: 2029-02-28

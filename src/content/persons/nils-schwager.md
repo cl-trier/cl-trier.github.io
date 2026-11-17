@@ -7,6 +7,8 @@ links:
     url: "mailto:schwager@uni-trier.de"
   - label: "Homepage"
     url: "https://nsschw.github.io/"
+  - label: "GitHub"
+    url: "https://github.com/nsschw"
   - label: "Google Scholar"
     url: https://scholar.google.com/citations?user=Hch2wCsAAAAJ&hl=de
 ---
