@@ -12,15 +12,26 @@ const { author, project, limit } = Astro.props;
 
 let publications = await getPublications(author, project);
 if (limit) publications = publications.slice(0, limit);
+
+const byYear = Map.groupBy(publications, (publication) => publication.data.year);
 ---
 
 {publications.length > 0 && (
     <>
         <slot />
-        <ul class="not-prose flex flex-col gap-6 my-8">
-            {publications.map((publication) => (
-                <li><PublicationCard publication={publication} /></li>
+        <div class="not-prose my-8 flex flex-col gap-10">
+            {[...byYear].map(([year, entries]) => (
+                <section class="grid gap-4 sm:grid-cols-[2rem_1fr] sm:gap-6">
+                    <h3 class="font-sm font-bold text-slate-600 sm:sticky sm:top-4 sm:self-start">
+                        {year}
+                    </h3>
+                    <ul class="flex flex-col gap-6 border-l border-slate-200 pl-5">
+                        {entries.map((publication) => (
+                            <li><PublicationCard publication={publication} /></li>
+                        ))}
+                    </ul>
+                </section>
             ))}
-        </ul>
+        </div>
     </>
 )}

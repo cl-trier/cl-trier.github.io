@@ -8,7 +8,7 @@ interface Props {
 }
 
 const { publication } = Astro.props;
-const { title, authors, venue, year, link, project } = publication.data;
+const { title, authors, venue, link, project } = publication.data;
 const { Content } = await render(publication);
 const allPersons = await getCollection("persons");
 // authors with a profile are linked; others are shown as given (slugs like "jane-doe" become "Jane Doe")
@@ -23,28 +23,45 @@ const persons = authors.map((author) => {
 const projectEntry = project ? await getEntry(project) : undefined;
 ---
 
-<article id={`publication-${publication.id}`} class="not-prose flex flex-col gap-1">
-    <h3 class="font-bold">
-        {link ? <a class="underline underline-offset-4" href={link}>{title}</a> : title}
-    </h3>
-    <p class="text-sm">
+<article id={`publication-${publication.id}`} class="not-prose flex flex-col gap-1.5">
+    <h4 class="font-semibold leading-snug text-slate-900">
+        {link
+            ? (
+                <a class="hover:underline decoration-slate-400 underline-offset-4" href={link}>
+                    {title}<span class="ml-1 text-slate-400" aria-hidden="true">↗</span>
+                </a>
+            )
+            : title}
+    </h4>
+    <p class="text-sm leading-relaxed text-slate-600">
         {persons.map((person, i) => (
             <>
                 {person.href
-                    ? <a class="hover:underline underline-offset-4" href={person.href}>{person.name}</a>
+                    ? (
+                        <a
+                            class="font-medium text-slate-900 underline decoration-slate-300 underline-offset-4 hover:decoration-slate-900"
+                            href={person.href}
+                        >{person.name}</a>
+                    )
                     : person.name}{i < persons.length - 1 && ", "}
             </>
         ))}
     </p>
-    <p class="text-sm italic text-slate-500">{venue}, {year}</p>
-    {projectEntry && (
-        <p class="text-sm text-slate-500">
-            Project: <a class="underline underline-offset-4" href={projectHref(projectEntry.id)}>{projectEntry.data.shortTitle}</a>
-        </p>
-    )}
-    <details class="text-sm">
-        <summary class="cursor-pointer text-slate-500 hover:underline underline-offset-4">Abstract</summary>
-        <div class="prose prose-sm mt-2">
+    <div class="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-slate-500">
+        <span class="italic">{venue}</span>
+        {projectEntry && (
+            <a
+                class="rounded-full bg-slate-100 px-2 py-0.5 text-xs font-medium text-slate-700 hover:bg-slate-200"
+                href={projectHref(projectEntry.id)}
+            >{projectEntry.data.shortTitle}</a>
+        )}
+    </div>
+    <details class="group text-sm">
+        <summary class="inline-flex cursor-pointer list-none items-center gap-1 text-slate-500 hover:text-slate-900 [&::-webkit-details-marker]:hidden">
+            <span class="inline-block transition-transform group-open:rotate-90" aria-hidden="true">▸</span>
+            Abstract
+        </summary>
+        <div class="prose prose-sm mt-2 text-slate-700">
             <Content />
         </div>
     </details>
