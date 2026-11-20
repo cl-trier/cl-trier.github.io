@@ -26,7 +26,7 @@ Workshops offer a venue to discuss a focused research topic in depth, to bring t
 
 Workshops may publish their proceedings as a volume of the KONVENS 2027 proceedings in the [ACL Anthology](https://aclanthology.org/). Organizers who choose this option agree to:
 
-- apply scientific quality standards in their review process that are equivalent to those of the [ACL Rolling Review (ARR)](https://aclrollingreview.org/reviewerguidelines), while taking into account the scope of KONVENS as a venue;
+- apply scientific quality standards in their review process that are equivalent to those of the [ACL Rolling Review (ARR)](https://aclrollingreview.org/reviewerguidelines), while taking into account the scope of KONVENS as a venue, including at least two independent reviews per paper and a conflict-of-interest policy;
 - provide their workshop proceedings as documents formatted for the [ACL Anthology](https://acl-org.github.io/ACLPUB/) (using the [ACL style files](https://github.com/acl-org/acl-style-files)), in line with the KONVENS 2027 deadlines.
 
 **Workshop proposals should include:**
@@ -59,25 +59,22 @@ Tutorials offer an introduction to established or emerging methods, resources, o
 
 Shared tasks offer a common evaluation framework for a well-defined research problem and foster comparable results across systems. We particularly welcome tasks involving German and the other languages and varieties of the Greater Region (Saarland, Lorraine, Luxembourg, Rhineland-Palatinate, and Wallonia), as well as tasks related to the conference theme. Shared task organizers are responsible for providing data, evaluation, and baselines, for running the task, for collecting and reviewing system description papers, and for presenting the results at KONVENS 2027 (Sep. 06 (Mon) or Sep. 07 (Tue), 2027).
 
-Shared tasks may likewise publish their system description papers as a volume of the KONVENS 2027 proceedings in the [ACL Anthology](https://aclanthology.org/). Organizers who choose this option agree to the same standards as workshops:
-
-- apply scientific quality standards in their review process that are equivalent to those of the [ACL Rolling Review (ARR)](https://aclrollingreview.org/reviewerguidelines), while taking into account the scope of KONVENS as a venue;
-- provide their shared task proceedings as documents formatted for the [ACL Anthology](https://acl-org.github.io/ACLPUB/) (using the [ACL style files](https://github.com/acl-org/acl-style-files)), in line with the KONVENS 2027 deadlines.
+Shared tasks may likewise publish their system description papers as a volume of the KONVENS 2027 proceedings in the [ACL Anthology](https://aclanthology.org/). Organizers who choose this option agree to the same review and formatting standards as workshops (see [Workshops](#workshops)).
 
 **Shared task proposals should include:**
 
 1. Title, short name or acronym, and a description of the task, its motivation, and its relation to the KONVENS 2027 theme (if applicable).
-2. Task definition, including subtasks (if any), input and output formats, and example instances.
+2. Task definition, including subtasks (if any), input and output formats, and example instances (which may be provided in an appendix).
 3. Description of the data: sources, size, languages or varieties, annotation procedure and quality, availability for training and testing, and licensing and ethical considerations.
 4. Evaluation measures and planned baseline systems.
 5. Expected number of participating teams and plans for advertising the task, including how to reach a diverse set of participants.
-6. Planned timeline (data release, evaluation period, system description papers, reviewing), compatible with the KONVENS 2027 deadlines.
+6. Planned timeline (data release, evaluation period, system description papers, reviewing), compatible with the KONVENS 2027 deadlines and preferred duration (full or half day).
 7. Whether the system description papers will be published as a KONVENS 2027 volume in the ACL Anthology.
 8. Names, affiliations, short bios, and contact information of all organizers, with one designated contact person.
 
 ## Venue and Registration
 
-All workshops, tutorials, and shared tasks are planned as in-person events at Trier University. KONVENS 2027 provides rooms, audiovisual equipment, and catering. Remote contributions are possible for invited keynote speakers; other exceptions can be discussed with the organizing committee. All participants, including organizers, presenters, and attendees of workshops, tutorials, and shared tasks, are required to register. Details on registration, including options for attending satellite events only, will be announced on this page.
+All workshops, tutorials, and shared tasks are planned as in-person events at Trier University. KONVENS 2027 provides rooms, audiovisual equipment, and catering. Remote contributions are possible for invited speakers; other exceptions can be discussed with the organizing committee. All participants, including organizers, presenters, and attendees of workshops, tutorials, and shared tasks, are required to register. Details on registration, including options for attending satellite events only, will be announced on this page.
 
 ## Evaluation of Proposals
 
@@ -96,4 +93,4 @@ All deadlines are at 23:59 Central European Time (Europe/Berlin): CET (UTC+01:00
 
 ## Submission
 
-Proposals should be submitted as a single PDF document of at most **2 pages**, formatted with the [ACL style files](https://github.com/acl-org/acl-style-files). References, organizer/presenter bios, and lists of potential program committee members and invited speakers do not count toward the page limit. Details on the submission procedure will be announced on this page.
+Proposals should be submitted as a single PDF document of at most **2 pages**, formatted with the [ACL style files](https://github.com/acl-org/acl-style-files). References, organizer/presenter bios, lists of potential program committee members and invited speakers, and, for shared task proposals, an appendix with example instances do not count toward the page limit. Details on the submission procedure will be announced on this page.
