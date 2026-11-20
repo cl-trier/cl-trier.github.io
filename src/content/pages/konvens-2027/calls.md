@@ -31,6 +31,8 @@ Workshops may publish their proceedings as a volume of the KONVENS 2027 proceedi
 
 Alternatively, workshops may remain non-archival, in which case accepted papers are not published in the ACL Anthology.
 
+Workshop organizers who are members of the [German Society for Computational Linguistics and Language Technology (GSCL)](https://www.gscl.org/) can apply to the GSCL for funding, for example for the travel and accommodation of invited speakers. Applications must be submitted to the GSCL at least three months before the workshop, i.e., by early June 2027 for KONVENS 2027 workshops. Funding depends on the available budget and is decided by the GSCL board. Details and conditions are given in the [GSCL funding guidelines for workshops](https://www.gscl.org/activities/vergaberichtlinienworkshops).
+
 **Workshop proposals should include:**
 
 1. Title, short name or acronym, and a brief description of the topic, its relevance, and its relation to the KONVENS 2027 theme (if applicable).
