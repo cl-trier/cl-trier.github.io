@@ -8,7 +8,7 @@ metaDescription: "Calls for Workshops, Tutorials, Shared Tasks, and Papers | KON
 
 KONVENS 2027 invites proposals for **workshops**, **tutorials**, and **shared tasks** to be held at Trier University on Sep. 06. (Mon) and Sep. 07. (Tue), 2027, ahead of the main conference. We welcome proposals from all areas of computational linguistics and natural language processing. Proposals that connect to this year's theme, *Linguistic Diversity in a World of Synthetic Text*, are particularly encouraged.
 
-## Theme: Linguistic Diversity in a World of Synthetic Text
+## Linguistic Diversity in a World of Synthetic Text
 
 Language models now produce synthetic text at unprecedented scale, and this text flows back into the corpora, platforms, and research instruments our field relies on. We are looking for satellite events that help the community describe, measure, and reflect on this development. Possible directions include, but are not limited to:
 
@@ -23,6 +23,11 @@ Language models now produce synthetic text at unprecedented scale, and this text
 ## Workshops
 
 Workshops offer a venue to discuss a focused research topic in depth, to bring together a specific community, or to explore emerging directions. Workshops can be scheduled either for a **full day** (Sep. 06. (Mon), 2027) or for a **half day** (Sep. 07. (Tue), 2027). Workshop organizers are responsible for their own call for papers, reviewing, and program. Accepted workshop papers will be due by the workshop camera-ready deadline listed under [Dates & Deadlines](/konvens-2027/dates).
+
+By conducting a workshop at KONVENS 2027, organizers agree to:
+
+- apply scientific quality standards in their review process that are equivalent to those of the [ACL Rolling Review (ARR)](https://aclrollingreview.org/reviewerguidelines), while taking into account the scope of KONVENS as a venue;
+- provide their workshop proceedings as documents formatted for the [ACL Anthology](https://acl-org.github.io/ACLPUB/) (using the [ACL style files](https://github.com/acl-org/acl-style-files)), in line with the KONVENS 2027 deadlines.
 
 **Workshop proposals should include:**
 
@@ -51,6 +56,11 @@ Tutorials offer an introduction to established or emerging methods, resources, o
 ## Shared Tasks
 
 Shared tasks offer a common evaluation framework for a well-defined research problem and foster comparable results across systems. We particularly welcome tasks involving German and other languages and varieties of the greater region, as well as tasks related to the conference theme. Shared task organizers are responsible for providing data, evaluation, and baselines, for running the task, for collecting and reviewing system description papers, and for presenting the results at KONVENS 2027 (Sep. 06. (Mon) or Sep. 07. (Tue), 2027).
+
+Shared tasks that plan to publish their system description papers in the KONVENS 2027 proceedings in the [ACL Anthology](https://aclanthology.org/) must meet the same standards as workshops, i.e., organizers agree to:
+
+- apply scientific quality standards in their review process that are equivalent to those of the [ACL Rolling Review (ARR)](https://aclrollingreview.org/reviewerguidelines), while taking into account the scope of KONVENS as a venue;
+- provide their shared task proceedings as documents formatted for the [ACL Anthology](https://acl-org.github.io/ACLPUB/) (using the [ACL style files](https://github.com/acl-org/acl-style-files)), in line with the KONVENS 2027 deadlines.
 
 **Shared task proposals should include:**
 
