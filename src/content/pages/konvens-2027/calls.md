@@ -1,10 +1,10 @@
 ---
 menuLabel: "Calls for Participation"
-metaTitle: "Calls for Workshops, Tutorials, Shared Tasks, and Papers | KONVENS 2027 @ Trier University"
-metaDescription: "Calls for Workshops, Tutorials, Shared Tasks, and Papers | KONVENS 2027 @ Trier University"
+metaTitle: "Calls for Workshops, Tutorials, Shared Tasks | KONVENS 2027 @ Trier University"
+metaDescription: "Calls for Workshops, Tutorials, Shared Tasks | KONVENS 2027 @ Trier University"
 ---
 
-# Calls for Workshops, Tutorials, Shared Tasks Proposals
+# Call for Workshops, Tutorials, Shared Tasks Proposals
 
 KONVENS 2027 invites proposals for **workshops**, **tutorials**, and **shared tasks** to be held at Trier University on Sep. 06. (Mon) and Sep. 07. (Tue), 2027, ahead of the main conference. We welcome proposals from all areas of computational linguistics and natural language processing. Proposals that connect to this year's theme, *Linguistic Diversity in a World of Synthetic Text*, are particularly encouraged.
 
@@ -24,7 +24,7 @@ Language models now produce synthetic text at unprecedented scale, and this text
 
 Workshops offer a venue to discuss a focused research topic in depth, to bring together a specific community, or to explore emerging directions. Workshops can be scheduled either for a **full day** (Sep. 06. (Mon), 2027) or for a **half day** (Sep. 07. (Tue), 2027). Workshop organizers are responsible for their own call for papers, reviewing, and program. Accepted workshop papers will be due by the workshop camera-ready deadline listed under [Dates & Deadlines](/konvens-2027/dates).
 
-By conducting a workshop at KONVENS 2027, organizers agree to:
+Workshops may publish their proceedings as a volume of the KONVENS 2027 proceedings in the [ACL Anthology](https://aclanthology.org/). Organizers who choose this option agree to:
 
 - apply scientific quality standards in their review process that are equivalent to those of the [ACL Rolling Review (ARR)](https://aclrollingreview.org/reviewerguidelines), while taking into account the scope of KONVENS as a venue;
 - provide their workshop proceedings as documents formatted for the [ACL Anthology](https://acl-org.github.io/ACLPUB/) (using the [ACL style files](https://github.com/acl-org/acl-style-files)), in line with the KONVENS 2027 deadlines.
@@ -37,7 +37,8 @@ By conducting a workshop at KONVENS 2027, organizers agree to:
 4. Expected number of submissions and attendees, and a list of potential program committee members and invited speakers (if planned).
 5. If the workshop has been held before: previous venues, number of submissions and accepted papers, and attendance.
 6. Planned timeline for the workshop call for papers, reviewing, and notification, compatible with the KONVENS 2027 deadlines.
-7. Plans for reaching a diverse audience and set of contributors.
+7. Whether the workshop proceedings will be published as a KONVENS 2027 volume in the ACL Anthology.
+8. Plans for reaching a diverse audience and set of contributors.
 
 ## Tutorials
 
@@ -57,7 +58,7 @@ Tutorials offer an introduction to established or emerging methods, resources, o
 
 Shared tasks offer a common evaluation framework for a well-defined research problem and foster comparable results across systems. We particularly welcome tasks involving German and other languages and varieties of the greater region, as well as tasks related to the conference theme. Shared task organizers are responsible for providing data, evaluation, and baselines, for running the task, for collecting and reviewing system description papers, and for presenting the results at KONVENS 2027 (Sep. 06. (Mon) or Sep. 07. (Tue), 2027).
 
-Shared tasks that plan to publish their system description papers in the KONVENS 2027 proceedings in the [ACL Anthology](https://aclanthology.org/) must meet the same standards as workshops, i.e., organizers agree to:
+Shared tasks may likewise publish their system description papers as a volume of the KONVENS 2027 proceedings in the [ACL Anthology](https://aclanthology.org/). Organizers who choose this option agree to the same standards as workshops:
 
 - apply scientific quality standards in their review process that are equivalent to those of the [ACL Rolling Review (ARR)](https://aclrollingreview.org/reviewerguidelines), while taking into account the scope of KONVENS as a venue;
 - provide their shared task proceedings as documents formatted for the [ACL Anthology](https://acl-org.github.io/ACLPUB/) (using the [ACL style files](https://github.com/acl-org/acl-style-files)), in line with the KONVENS 2027 deadlines.
@@ -70,7 +71,12 @@ Shared tasks that plan to publish their system description papers in the KONVENS
 4. Evaluation measures and planned baseline systems.
 5. Expected number of participating teams and plans for advertising the task.
 6. Planned timeline (data release, evaluation period, system description papers, reviewing), compatible with the KONVENS 2027 deadlines.
-7. Names, affiliations, short bios, and contact information of all organizers.
+7. Whether the system description papers will be published as a KONVENS 2027 volume in the ACL Anthology.
+8. Names, affiliations, short bios, and contact information of all organizers.
+
+## Venue and Registration
+
+KONVENS 2027 provides rooms, audiovisual equipment, and catering for all workshops, tutorials, and shared tasks at Trier University. All participants, including organizers, presenters, and attendees of workshops, tutorials, and shared tasks, are required to register. Details on registration, including options for attending satellite events only, will be announced on this page.
 
 ## Evaluation of Proposals
 
@@ -89,4 +95,4 @@ All deadlines are in Central European Time (CET, UTC+01:00). See [Dates & Deadli
 
 ## Submission
 
-Proposals should be submitted as a single PDF document. Details on the submission procedure will be announced on this page.
+Proposals should be submitted as a single PDF document of at most **2 pages**, excluding references and organizer/presenter bios. Details on the submission procedure will be announced on this page.
