@@ -1,7 +1,7 @@
 ---
 name: "Nils Schwager"
 position: "Research Fellow"
-image: "portraits/nils-schwager.jpeg"
+image: "portraits/nils-schwager.jpg"
 links:
   - label: "E-Mail"
     url: "mailto:schwager@uni-trier.de"

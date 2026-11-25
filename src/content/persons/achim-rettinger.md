@@ -1,7 +1,7 @@
 ---
 name: "Achim Rettinger"
 position: "Chair of Computational Linguistics"
-image: "portraits/achim-rettinger.svg"
+image: "portraits/achim-rettinger.jpg"
 links:
   - label: "E-Mail"
     url: "mailto:rettinger@uni-trier.de"
