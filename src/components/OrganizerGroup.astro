@@ -1,0 +1,55 @@
+---
+import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
+import { personHref } from "@lib/content";
+
+interface Member {
+    name: string;
+    id?: string; // person id: shows the portrait and links to the profile
+}
+
+interface Props {
+    title: string;
+    members: Member[];
+}
+
+const { title, members } = Astro.props;
+const persons = await getCollection("persons");
+
+const entries = members.map((member) => {
+    const person = member.id ? persons.find((p) => p.id === member.id) : undefined;
+    if (member.id && !person) throw new Error(`Unknown person id: ${member.id}`);
+    return { name: member.name, person };
+});
+
+const initials = (name: string) =>
+    name.split(/\s+/).map((part) => part[0]).join("").slice(0, 2).toUpperCase();
+---
+
+<section class="not-prose my-10">
+    <h2 class="mb-6 text-xl font-bold">{title}</h2>
+    <ul class="grid grid-cols-2 gap-8 sm:grid-cols-3">
+        {entries.map(({ name, person }) => (
+            <li class="flex flex-col items-center gap-3 text-center">
+                {person?.data.image ? (
+                    <Image
+                        src={person.data.image}
+                        alt={`Portrait of ${name}`}
+                        width={128}
+                        height={128}
+                        class="size-32 shrink-0 rounded-full object-cover bg-slate-100"
+                    />
+                ) : (
+                    <div class="flex size-32 shrink-0 items-center justify-center rounded-full bg-slate-100 text-2xl font-bold text-slate-400" aria-hidden="true">
+                        {initials(name)}
+                    </div>
+                )}
+                {person ? (
+                    <a class="font-bold hover:underline underline-offset-4" href={personHref(person.id)}>{name}</a>
+                ) : (
+                    <span class="font-bold">{name}</span>
+                )}
+            </li>
+        ))}
+    </ul>
+</section>
