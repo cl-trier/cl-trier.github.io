@@ -1,6 +1,4 @@
-import { getCollection } from "astro:content";
-
-import { ROUTES, getPersons, getProjects, personHref, projectHref } from "@lib/content";
+import { ROUTES, getPages, getPersons, getProjects, pageHref, personHref, projectHref } from "@lib/content";
 
 export interface MenuItem {
     label: string;
@@ -14,18 +12,14 @@ export const currentPath = (url: URL) => url.pathname.replace(/\/?$/, "/");
 
 const leaf = (label: string, href: string): MenuItem => ({ label, href, children: [] });
 
-function getHref(id: string): string {
-    return id === "index" ? "/" : `/${id}/`;
-}
-
 async function getPageItems(): Promise<MenuItem[]> {
-    const pages = await getCollection("pages", ({ data }) => data.navIndexed);
+    const pages = (await getPages()).filter(({ data }) => data.navIndexed);
     const menuItems = new Map<string, MenuItem>();
     const topLevelItems: MenuItem[] = [];
 
     for (const page of pages) {
         menuItems.set(page.id, {
-            ...leaf(page.data.menuLabel, getHref(page.id)),
+            ...leaf(page.data.menuLabel, pageHref(page.id)),
             separated: page.data.navSeparated,
         });
     }

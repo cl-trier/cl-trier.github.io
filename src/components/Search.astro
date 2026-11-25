@@ -1,0 +1,240 @@
+---
+// global search: a trigger button opening an overlay that shows the cards of all matching items
+// usage: <Search /> searches everything; <Search types={["persons", "publications"]} /> only the given types, in that order
+import type { CollectionEntry } from "astro:content";
+import { getPages, getPersons, getProjects, getPublications } from "@lib/content";
+import { SEARCH_TYPES, type SearchType } from "@lib/search";
+import PageCard from "@components/PageCard.astro";
+import PersonCard from "@components/PersonCard.astro";
+import ProjectCard from "@components/ProjectCard.astro";
+import PublicationCard from "@components/PublicationCard.astro";
+
+interface Props {
+    types?: SearchType[];
+    class?: string; // classes of the trigger button
+}
+
+const { types = Object.keys(SEARCH_TYPES) as SearchType[], class: className } = Astro.props;
+
+const sources: { [T in SearchType]: () => Promise<CollectionEntry<T>[]> } = {
+    pages: getPages,
+    persons: () => getPersons(),
+    projects: () => getProjects(),
+    publications: () => getPublications(),
+};
+
+const groups = await Promise.all(
+    types.map(async (type) => {
+        const entries: CollectionEntry<SearchType>[] = await sources[type]();
+        return { label: SEARCH_TYPES[type], entries };
+    })
+);
+
+const hint = `Search ${new Intl.ListFormat("en").format(groups.map(({ label }) => label.toLowerCase()))}`;
+---
+
+<site-search class="contents">
+    <button
+        type="button"
+        aria-haspopup="dialog"
+        data-search-open
+        class:list={[
+            "not-prose inline-flex cursor-pointer items-center gap-2 px-2 py-1 italic text-slate-500 hover:border-slate-900 hover:text-slate-900",
+            className,
+        ]}
+    >
+        <svg class="size-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="7" />
+            <path d="m20 20-4-4" />
+        </svg>
+        <span class="sr-only sm:not-sr-only">search</span>
+    </button>
+
+    <dialog
+        aria-label="Search"
+        class="not-prose mx-auto mt-[8dvh] mb-auto h-fit max-h-[84dvh] w-[calc(100%-2rem)] max-w-3xl flex-col overflow-hidden bg-white shadow-xl backdrop:bg-slate-900/40 open:flex"
+    >
+        <div class="flex items-center gap-4 border-b border-slate-200 p-4">
+            <label class="min-w-0 flex-1">
+                <span class="sr-only">{hint}</span>
+                <input
+                    type="search"
+                    autocomplete="off"
+                    spellcheck="false"
+                    placeholder="search"
+                    data-search-input
+                    class="w-full border-b-2 border-l-2 border-slate-400 bg-transparent px-2 py-2 italic outline-none placeholder:text-slate-400 focus:border-cyan-500"
+                />
+            </label>
+            <button type="button" data-search-close class="cursor-pointer text-sm text-slate-500 hover:text-slate-900">
+                close <kbd class="ml-1 hidden rounded border border-slate-300 px-1 font-mono text-xs sm:inline">esc</kbd>
+            </button>
+        </div>
+        <p role="status" data-search-status data-hint={hint} class="px-4 pt-3 text-xs text-slate-500">{hint}</p>
+        <div data-search-results class="flex min-h-0 flex-1 flex-col gap-10 overflow-y-auto p-4 pb-8"></div>
+    </dialog>
+
+    <!-- inert: the cards are cloned into the results when they match, so their ids and images never clash with or load on the page -->
+    <template data-search-index>
+        {groups.map(({ label, entries }) => (
+            <section data-search-group class="flex flex-col gap-6">
+                <h2 class="flex items-baseline gap-2 border-b border-slate-200 pb-1 text-sm font-semibold tracking-wide text-slate-500 uppercase">
+                    {label}
+                    <span data-search-count class="font-normal"></span>
+                </h2>
+                <ul class="flex flex-col gap-8">
+                    {entries.map((entry) => (
+                        <li data-search-item>
+                            {entry.collection === "pages" && <PageCard page={entry} />}
+                            {entry.collection === "persons" && <PersonCard person={entry} />}
+                            {entry.collection === "projects" && <ProjectCard project={entry} />}
+                            {entry.collection === "publications" && <PublicationCard publication={entry} />}
+                        </li>
+                    ))}
+                </ul>
+            </section>
+        ))}
+    </template>
+</site-search>
+
+<style is:global>
+    html:has(site-search dialog[open]) {
+        overflow: hidden;
+    }
+</style>
+
+<script>
+    import { findMatches, getSearchTerms, matchesAll, normalize } from "@lib/search";
+
+    const MARK_CLASS = "bg-cyan-100 text-inherit";
+    const EXPAND_MIN_LENGTH = 3; // matches at least this long open collapsed sections, e.g. abstracts
+    const EXCERPT_LEAD = 40;     // characters shown before the first match of an excerpt
+
+    function find<T extends Element>(root: ParentNode, selector: string): T {
+        const element = root.querySelector<T>(selector);
+        if (!element) throw new Error(`site-search: missing ${selector}`);
+        return element;
+    }
+
+    // text nodes that are searched and highlighted: all but those inside [data-search-ignore]
+    function textNodes(root: Node): Text[] {
+        const walker = (root.ownerDocument ?? document).createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+            acceptNode: (node) =>
+                node.parentElement?.closest("[data-search-ignore]") ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT,
+        });
+        const nodes: Text[] = [];
+        while (walker.nextNode()) nodes.push(walker.currentNode as Text);
+        return nodes;
+    }
+
+    // starts an excerpt shortly before its first match (it is clamped at the end by css)
+    function moveExcerpt(element: Element, terms: string[]) {
+        const text = element.textContent ?? "";
+        const first = findMatches(text, terms)[0];
+        if (!first || first[0] <= EXCERPT_LEAD) return;
+        const start = text.lastIndexOf(" ", first[0] - EXCERPT_LEAD) + 1;
+        element.textContent = `… ${text.slice(start)}`;
+    }
+
+    function highlight(root: Node, terms: string[]) {
+        for (const node of textNodes(root)) {
+            const matches = findMatches(node.data, terms);
+            if (!matches.length) continue;
+
+            const fragment = document.createDocumentFragment();
+            let last = 0;
+            for (const [start, end] of matches) {
+                const mark = document.createElement("mark");
+                mark.className = MARK_CLASS;
+                mark.textContent = node.data.slice(start, end);
+                fragment.append(node.data.slice(last, start), mark);
+                last = end;
+            }
+            fragment.append(node.data.slice(last));
+            node.replaceWith(fragment);
+        }
+    }
+
+    // prepares a cloned card for display
+    function renderItem(item: Element, terms: string[]) {
+        item.querySelectorAll("[id]").forEach((element) => element.removeAttribute("id"));
+        item.querySelectorAll("[data-search-excerpt]").forEach((element) => moveExcerpt(element, terms));
+        highlight(item, terms);
+        item.querySelectorAll("details").forEach((details) => {
+            details.open = [...details.querySelectorAll("mark")].some(
+                (mark) => (mark.textContent ?? "").length >= EXPAND_MIN_LENGTH
+            );
+        });
+    }
+
+    class SiteSearch extends HTMLElement {
+        connectedCallback() {
+            const dialog = find<HTMLDialogElement>(this, "dialog");
+            const input = find<HTMLInputElement>(this, "[data-search-input]");
+            const status = find<HTMLElement>(this, "[data-search-status]");
+            const results = find<HTMLElement>(this, "[data-search-results]");
+            const template = find<HTMLTemplateElement>(this, "template[data-search-index]");
+
+            // normalized text of every item, computed once
+            const groups = [...template.content.querySelectorAll("[data-search-group]")].map((group) => ({
+                group,
+                texts: [...group.querySelectorAll("[data-search-item]")].map((item) =>
+                    normalize(textNodes(item).map((node) => node.data).join(" "))
+                ),
+            }));
+
+            const update = () => {
+                const terms = getSearchTerms(input.value);
+                let total = 0;
+
+                const sections = terms.length === 0 ? [] : groups.flatMap(({ group, texts }) => {
+                    const matched = texts.map((text) => matchesAll(text, terms));
+                    const count = matched.filter(Boolean).length;
+                    if (count === 0) return [];
+                    total += count;
+
+                    const section = document.importNode(group, true);
+                    section.querySelectorAll("[data-search-item]").forEach((item, i) => {
+                        if (matched[i]) renderItem(item, terms);
+                        else item.remove();
+                    });
+                    find(section, "[data-search-count]").textContent = String(count);
+                    return [section];
+                });
+
+                results.replaceChildren(...sections);
+                status.textContent =
+                    terms.length === 0
+                        ? (status.dataset.hint ?? "")
+                        : total === 0
+                            ? `No results for “${input.value.trim()}”`
+                            : `${total} result${total === 1 ? "" : "s"}`;
+            };
+
+            find(this, "[data-search-open]").addEventListener("click", () => {
+                dialog.showModal();
+                input.focus();
+                input.select();
+            });
+            find(this, "[data-search-close]").addEventListener("click", () => dialog.close());
+            input.addEventListener("input", update);
+
+            dialog.addEventListener("click", (event) => {
+                // a click on the backdrop targets the dialog itself, outside its box
+                const box = dialog.getBoundingClientRect();
+                const outside =
+                    event.clientX < box.left || event.clientX > box.right ||
+                    event.clientY < box.top || event.clientY > box.bottom;
+                if (event.target === dialog && outside) dialog.close();
+            });
+            // close when following a result, also for links within the current page
+            results.addEventListener("click", (event) => {
+                if (event.target instanceof Element && event.target.closest("a[href]")) dialog.close();
+            });
+
+            update(); // the browser may restore a previous query
+        }
+    }
+
+    if (!customElements.get("site-search")) customElements.define("site-search", SiteSearch);
+</script>

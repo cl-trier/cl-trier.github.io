@@ -1,6 +1,7 @@
 ---
 import CONFIG from "@content/site/config.json";
 import NavMenu from "@layouts/partials/NavMenu.astro";
+import Search from "@components/Search.astro";
 import { currentPath, findSection, getMenuItems } from "@lib/menu";
 
 const menuItems = await getMenuItems();
@@ -24,27 +25,31 @@ const menus = groups.filter((group) => group.length > 0);
             <a class="text-lg font-bold" href="/">{CONFIG.name}</a>
         )}
 
-        <!-- desktop: in a row, horizontally scrollable within a section -->
-        <div class:list={["hidden md:flex min-w-0 items-center gap-8", { "overflow-x-auto": section }]}>
-            {menus.map((items, i) => (
-                <>
-                    {i > 0 && <span class="text-slate-300" aria-hidden="true">|</span>}
-                    <NavMenu items={items} />
-                </>
-            ))}
-        </div>
+        <Search class="shrink-0" />
 
-        <!-- mobile: toggled panel below the navbar -->
-        <details class="md:hidden">
-            <summary class="cursor-pointer list-none hover:underline underline-offset-4 [&::-webkit-details-marker]:hidden">Menu</summary>
-            <div class="absolute inset-x-0 top-full z-20 mt-2 flex flex-col gap-4 bg-slate-100 p-4">
+        <div class="flex min-w-0 items-center gap-8">
+            <!-- desktop: in a row, horizontally scrollable within a section -->
+            <div class:list={["hidden md:flex min-w-0 items-center gap-8", { "overflow-x-auto": section }]}>
                 {menus.map((items, i) => (
                     <>
-                        {i > 0 && <hr class="border-slate-300" />}
-                        <NavMenu items={items} vertical />
+                        {i > 0 && <span class="text-slate-300" aria-hidden="true">|</span>}
+                        <NavMenu items={items} />
                     </>
                 ))}
             </div>
-        </details>
+
+            <!-- mobile: toggled panel below the navbar -->
+            <details class="md:hidden">
+                <summary class="cursor-pointer list-none hover:underline underline-offset-4 [&::-webkit-details-marker]:hidden">Menu</summary>
+                <div class="absolute inset-x-0 top-full z-20 mt-2 flex flex-col gap-4 bg-slate-100 p-4">
+                    {menus.map((items, i) => (
+                        <>
+                            {i > 0 && <hr class="border-slate-300" />}
+                            <NavMenu items={items} vertical />
+                        </>
+                    ))}
+                </div>
+            </details>
+        </div>
     </div>
 </nav>

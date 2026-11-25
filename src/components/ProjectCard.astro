@@ -33,11 +33,11 @@ const period = `${formatMonth(duration.start)} – ${duration.end ? formatMonth(
                 <a class="hover:underline underline-offset-4" href={projectHref(project.id)}>{title}</a>
             </h3>
             <dl class="grid grid-cols-[auto_1fr] gap-x-3 text-sm text-slate-500">
-                <dt>Funding</dt>
+                <dt data-search-ignore>Funding</dt>
                 <dd>{funding}</dd>
-                <dt>Duration</dt>
+                <dt data-search-ignore>Duration</dt>
                 <dd>{period}</dd>
-                <dt>Contact</dt>
+                <dt data-search-ignore>Contact</dt>
                 <dd>
                     {person
                         ? <a class="underline underline-offset-4" href={personHref(person.id)}>{person.data.name}</a>
