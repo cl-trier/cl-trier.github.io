@@ -20,6 +20,8 @@ Language models now produce synthetic text at unprecedented scale, and this text
 - **Variation and low-resource settings:** orthographic and lexical variation in small and semi-standardized languages, dedicated resources and models for low-resource languages, and socially loaded discourse beyond English.
 - **Multilingualism and identity:** language contact, language choice, and identity in multilingual regions such as the border region around Trier.
 
+---
+
 ## Workshops
 
 Workshops offer a venue to discuss a focused research topic in depth, to bring together a specific community, or to explore emerging directions. Workshops can be held as **full-day** or **half-day** events. We currently plan full-day events for Sep. 06 (Mon) and half-day events for Sep. 07 (Tue), 2027. The final schedule will depend on the accepted proposals. Workshop organizers are responsible for their own call for papers, reviewing, and program. Accepted workshop papers will be due by the workshop camera-ready deadline listed under [Dates & Deadlines](/konvens-2027/dates).
@@ -44,6 +46,8 @@ Workshop organizers who are members of the [German Society for Computational Lin
 7. Whether the workshop proceedings will be published as a KONVENS 2027 volume in the ACL Anthology, as a JLCL special issue, or remain non-archival.
 8. Plans for reaching a diverse audience and set of contributors.
 
+---
+
 ## Tutorials
 
 Tutorials offer an introduction to established or emerging methods, resources, or research areas for an audience of researchers and students. Tutorials can be held as **full-day** or **half-day** events, following the same schedule as workshops. Introductory and cutting-edge tutorials are both welcome, and either type may include hands-on components.
@@ -58,6 +62,8 @@ Tutorials offer an introduction to established or emerging methods, resources, o
 6. Technical requirements (e.g., participant laptops, software, data, computing resources).
 7. Reading list and, if available, links to teaching materials.
 8. Plans for reaching a diverse audience.
+
+---
 
 ## Shared Tasks
 
@@ -76,6 +82,8 @@ Shared tasks may likewise publish their system description papers as a volume of
 7. Preferred duration (full or half day) of the shared task session.
 8. Whether the system description papers will be published as a KONVENS 2027 volume in the ACL Anthology, as a JLCL special issue, or remain non-archival.
 9. Names, affiliations, short bios, and contact information of all organizers, with one designated contact person.
+
+---
 
 ## Venue and Registration
 
