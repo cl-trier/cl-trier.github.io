@@ -22,20 +22,16 @@ Language models now produce synthetic text at unprecedented scale, and this text
 
 ## Workshops
 
-Workshops offer a venue to discuss a focused research topic in depth, to bring together a specific community, or to explore emerging directions. Workshops can be held as **full-day** or **half-day** events. We currently plan full-day events for Sep. 06 (Mon) and half-day events for Sep. 07 (Tue), 2027; the final schedule will depend on the accepted proposals. Workshop organizers are responsible for their own call for papers, reviewing, and program. Accepted workshop papers will be due by the workshop camera-ready deadline listed under [Dates & Deadlines](/konvens-2027/dates).
+Workshops offer a venue to discuss a focused research topic in depth, to bring together a specific community, or to explore emerging directions. Workshops can be held as **full-day** or **half-day** events. We currently plan full-day events for Sep. 06 (Mon) and half-day events for Sep. 07 (Tue), 2027. The final schedule will depend on the accepted proposals. Workshop organizers are responsible for their own call for papers, reviewing, and program. Accepted workshop papers will be due by the workshop camera-ready deadline listed under [Dates & Deadlines](/konvens-2027/dates).
 
 Workshops may publish their proceedings as a volume of the KONVENS 2027 proceedings in the [ACL Anthology](https://aclanthology.org/). Organizers who choose this option agree to:
 
 - apply scientific quality standards in their review process that are equivalent to those of the [ACL Rolling Review (ARR)](https://aclrollingreview.org/reviewerguidelines), while taking into account the scope of KONVENS as a venue, including at least two independent reviews per paper and a conflict-of-interest policy;
 - provide their workshop proceedings as documents formatted according to the [ACLPUB guidelines](https://acl-org.github.io/ACLPUB/) (using the [ACL style files](https://github.com/acl-org/acl-style-files)), in line with the KONVENS 2027 deadlines.
 
-As an alternative publication route, workshops may instead publish their papers as a [special issue](https://jlcl.org/about/specialissues) of the [Journal for Language Technology and Computational Linguistics (JLCL)](https://jlcl.org/), with its own schedule. After the annual alignment between JLCL and the ACL Anthology, the special issue will also be archived there. After acceptance, contact the journal to schedule your timeline.
+As an alternative publication route, workshops may instead publish their papers as a [special issue](https://jlcl.org/about/specialissues) of the [Journal for Language Technology and Computational Linguistics (JLCL)](https://jlcl.org/), with its own schedule. After the annual alignment between JLCL and the ACL Anthology, the special issue will also be archived there. After acceptance, contact the journal to schedule your timeline. Alternatively, workshops may remain non-archival.
 
-Alternatively, workshops may remain non-archival, in which case accepted papers are not published in the ACL Anthology.
-
-Workshop organizers who are members of the [German Society for Computational Linguistics and Language Technology (GSCL)](https://www.gscl.org/) can apply to the GSCL for funding, for example for the travel and accommodation of invited speakers. Applications must be submitted to the GSCL at least three months before the workshop, i.e., by early June 2027 for KONVENS 2027 workshops. Funding depends on the available budget and is decided by the GSCL board. Details and conditions are given in the [GSCL funding guidelines for workshops](https://www.gscl.org/activities/vergaberichtlinienworkshops).
-
-Junior keynote speakers can request travel funding from the [GSCL](https://www.gscl.org/). To do so, please contact the GSCL directly.
+Workshop organizers who are members of the [German Society for Computational Linguistics and Language Technology (GSCL)](https://www.gscl.org/) can apply to the GSCL for funding, for example for the travel and accommodation of invited speakers. Applications must be submitted to the GSCL at least three months before the workshop, i.e., by early June 2027 for KONVENS 2027 workshops. Funding depends on the available budget and is decided by the GSCL board. Details and conditions are given in the [GSCL funding guidelines for workshops](https://www.gscl.org/activities/vergaberichtlinienworkshops). Further, junior keynote speakers can request travel funding from the [GSCL](https://www.gscl.org/). To do so, please contact the GSCL directly.
 
 **Workshop proposals should include:**
 
