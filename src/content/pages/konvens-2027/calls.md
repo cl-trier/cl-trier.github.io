@@ -29,9 +29,13 @@ Workshops may publish their proceedings as a volume of the KONVENS 2027 proceedi
 - apply scientific quality standards in their review process that are equivalent to those of the [ACL Rolling Review (ARR)](https://aclrollingreview.org/reviewerguidelines), while taking into account the scope of KONVENS as a venue, including at least two independent reviews per paper and a conflict-of-interest policy;
 - provide their workshop proceedings as documents formatted according to the [ACLPUB guidelines](https://acl-org.github.io/ACLPUB/) (using the [ACL style files](https://github.com/acl-org/acl-style-files)), in line with the KONVENS 2027 deadlines.
 
+As an alternative publication route, workshops may instead publish their papers as a [special issue](https://jlcl.org/about/specialissues) of the [Journal for Language Technology and Computational Linguistics (JLCL)](https://jlcl.org/), with its own schedule. After the annual alignment between JLCL and the ACL Anthology, the special issue will also be archived there. After acceptance, contact the journal to schedule your timeline.
+
 Alternatively, workshops may remain non-archival, in which case accepted papers are not published in the ACL Anthology.
 
 Workshop organizers who are members of the [German Society for Computational Linguistics and Language Technology (GSCL)](https://www.gscl.org/) can apply to the GSCL for funding, for example for the travel and accommodation of invited speakers. Applications must be submitted to the GSCL at least three months before the workshop, i.e., by early June 2027 for KONVENS 2027 workshops. Funding depends on the available budget and is decided by the GSCL board. Details and conditions are given in the [GSCL funding guidelines for workshops](https://www.gscl.org/activities/vergaberichtlinienworkshops).
+
+Junior keynote speakers can request travel funding from the [GSCL](https://www.gscl.org/). To do so, please contact the GSCL directly.
 
 **Workshop proposals should include:**
 
@@ -41,7 +45,7 @@ Workshop organizers who are members of the [German Society for Computational Lin
 4. Expected number of submissions and attendees, and a list of potential program committee members and invited speakers (if planned).
 5. If the workshop has been held before: previous venues, number of submissions and accepted papers, and attendance.
 6. Planned timeline for the workshop call for papers, reviewing, and notification, compatible with the KONVENS 2027 deadlines.
-7. Whether the workshop proceedings will be published as a KONVENS 2027 volume in the ACL Anthology.
+7. Whether the workshop proceedings will be published as a KONVENS 2027 volume in the ACL Anthology, as a JLCL special issue, or remain non-archival.
 8. Plans for reaching a diverse audience and set of contributors.
 
 ## Tutorials
@@ -63,7 +67,7 @@ Tutorials offer an introduction to established or emerging methods, resources, o
 
 Shared tasks offer a common evaluation framework for a well-defined research problem and foster comparable results across systems. We particularly welcome tasks involving German and the other languages and varieties of the Greater Region (Saarland, Lorraine, Luxembourg, Rhineland-Palatinate, and Wallonia), as well as tasks related to the conference theme. Shared task organizers are responsible for providing data, evaluation, and baselines, for running the task, for collecting and reviewing system description papers, and for presenting the results at KONVENS 2027 on Sep. 06 (Mon) or Sep. 07 (Tue), 2027.
 
-Shared tasks may likewise publish their system description papers as a volume of the KONVENS 2027 proceedings in the [ACL Anthology](https://aclanthology.org/). Organizers who choose this option agree to the same review and formatting standards as workshops (see [Workshops](#workshops)). Alternatively, shared tasks may remain non-archival.
+Shared tasks may likewise publish their system description papers as a volume of the KONVENS 2027 proceedings in the [ACL Anthology](https://aclanthology.org/). Organizers who choose this option agree to the same review and formatting standards as workshops (see [Workshops](#workshops)). As for workshops, we recommend publishing as a [JLCL special issue](https://jlcl.org/about/specialissues) with its own schedule, which will also be archived in the ACL Anthology after the annual alignment. After acceptance, contact the journal to schedule your timeline. Alternatively, shared tasks may remain non-archival.
 
 **Shared task proposals should include:**
 
@@ -74,7 +78,7 @@ Shared tasks may likewise publish their system description papers as a volume of
 5. Expected number of participating teams and plans for advertising the task, including how to reach a diverse set of participants.
 6. Planned timeline (data release, evaluation period, system description papers, reviewing), compatible with the KONVENS 2027 deadlines.
 7. Preferred duration (full or half day) of the shared task session.
-8. Whether the system description papers will be published as a KONVENS 2027 volume in the ACL Anthology.
+8. Whether the system description papers will be published as a KONVENS 2027 volume in the ACL Anthology, as a JLCL special issue, or remain non-archival.
 9. Names, affiliations, short bios, and contact information of all organizers, with one designated contact person.
 
 ## Venue and Registration

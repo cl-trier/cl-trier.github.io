@@ -1,0 +1,42 @@
+---
+menuLabel: "Organizers"
+metaTitle: "Organizers | KONVENS 2027 @ Trier University"
+metaDescription: "The organizing committee of KONVENS 2027 at Trier University."
+---
+
+import OrganizerGroup from "@components/OrganizerGroup.astro";
+
+# Organizers
+
+<OrganizerGroup
+  title="General Chairs"
+  members={[
+    { name: "Achim Rettinger", id: "achim-rettinger" },
+    { name: "Christoph Purschke" },
+  ]}
+/>
+
+<OrganizerGroup
+  title="Program Chairs"
+  members={[
+    { name: "Simon Münker", id: "simon-muenker" },
+    { name: "Alistair Plum" },
+  ]}
+/>
+
+<OrganizerGroup
+  title="Workshop Chairs"
+  members={[
+    { name: "Kai Kugler", id: "kai-kugler" },
+    { name: "Simon Werner" },
+  ]}
+/>
+
+<OrganizerGroup
+  title="Social & Event Chairs"
+  members={[
+    { name: "Christoph Hau", id: "christoph-hau" },
+    { name: "Nils Schwager", id: "nils-schwager" },
+    { name: "Raghvi Baloni" },
+  ]}
+/>
