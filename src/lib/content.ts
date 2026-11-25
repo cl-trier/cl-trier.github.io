@@ -6,8 +6,12 @@ export const ROUTES = {
     people: "/people/",
 };
 
+export const pageHref = (id: string) => (id === "index" ? "/" : `/${id}/`);
 export const projectHref = (id: string) => `${ROUTES.projects}${id}/`;
 export const personHref = (id: string) => `${ROUTES.people}${id}/`;
+
+// pages, in content order
+export const getPages = () => getCollection("pages");
 
 // projects, newest first; optionally only those a person is contact of or involved in
 export async function getProjects(person?: string) {

@@ -1,0 +1,26 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { pageHref } from "@lib/content";
+import { markdownToText } from "@lib/search";
+
+interface Props {
+    page: CollectionEntry<"pages">;
+}
+
+const { page } = Astro.props;
+const { menuLabel, metaDescription } = page.data;
+const href = pageHref(page.id);
+const text = markdownToText(page.body ?? "");
+---
+
+<article class="not-prose flex flex-col gap-2">
+    <header>
+        <h3 class="text-lg font-bold">
+            <a class="hover:underline underline-offset-4" href={href}>{menuLabel}</a>
+        </h3>
+        <a class="font-mono text-xs text-slate-500 hover:underline underline-offset-4" href={href}>{href}</a>
+    </header>
+    {metaDescription && <p class="text-sm text-slate-600">{metaDescription}</p>}
+    <!-- data-search-excerpt: the search moves the excerpt to its first match -->
+    {text && <p class="line-clamp-2 text-sm text-slate-500" data-search-excerpt>{text}</p>}
+</article>
