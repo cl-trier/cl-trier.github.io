@@ -31,14 +31,22 @@ const initials = (name: string) =>
     <ul class="grid grid-cols-2 gap-8 sm:grid-cols-3">
         {entries.map(({ name, person }) => (
             <li class="flex flex-col items-center gap-3 text-center">
-                {person?.data.image ? (
-                    <Image
-                        src={person.data.image}
-                        alt={`Portrait of ${name}`}
-                        width={128}
-                        height={128}
-                        class="size-32 shrink-0 rounded-full object-cover bg-slate-100"
-                    />
+                {person ? (
+                    <a href={personHref(person.id)} tabindex="-1" aria-hidden="true" class="rounded-full transition-opacity hover:opacity-80">
+                    {person.data.image ? (
+                        <Image
+                            src={person.data.image}
+                            alt={`Portrait of ${name}`}
+                            width={128}
+                            height={128}
+                            class="size-32 shrink-0 rounded-full object-cover bg-slate-100"
+                        />
+                    ) : (
+                        <div class="flex size-32 shrink-0 items-center justify-center rounded-full bg-slate-100 text-2xl font-bold text-slate-400" aria-hidden="true">
+                            {initials(name)}
+                        </div>
+                    )}
+                    </a>
                 ) : (
                     <div class="flex size-32 shrink-0 items-center justify-center rounded-full bg-slate-100 text-2xl font-bold text-slate-400" aria-hidden="true">
                         {initials(name)}
