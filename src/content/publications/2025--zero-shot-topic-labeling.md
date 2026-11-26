@@ -2,8 +2,8 @@
 title: "Zero-shot prompt-based classification: topic labeling in times of foundation models in German Tweets"
 authors:
   - simon-muenker
+  - kai-kugler
   - achim-rettinger
-  - damian-trilling
 venue: "SRW @ ACL"
 year: 2025
 link: "https://aclanthology.org/2025.acl-srw.4/"
