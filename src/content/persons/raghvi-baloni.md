@@ -1,6 +1,7 @@
 ---
 name: "Raghvi Baloni"
 position: "Research Fellow"
+image: "portraits/raghvi-baloni.jpg"
 links:
   - label: "E-Mail"
     url: "mailto:baloni@uni-trier.de"
