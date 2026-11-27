@@ -83,6 +83,71 @@ Shared tasks may likewise publish their system description papers as a volume of
 8. Whether the system description papers will be published as a KONVENS 2027 volume in the ACL Anthology, as a JLCL special issue, or remain non-archival.
 9. Names, affiliations, short bios, and contact information of all organizers, with one designated contact person.
 
+**Proposing a GermEval shared task?** Please see the [GermEval call below](#germeval-shared-tasks). Its submission guidelines and timeline differ from the ones above.
+
+---
+
+## GermEval Shared Tasks
+
+**Please note: The submission guidelines and timeline for GermEval shared tasks differ from the general call for shared tasks above.** We are now accepting proposals for GermEval 2027 shared tasks. Proposals can be submitted at any time until the proposal deadline on Jan. 24 (Sun), 2027.
+
+GermEval is a series of shared task evaluation campaigns that focus on Natural Language Processing for the German language and has been running since 2014, traditionally co-located with KONVENS. Shared task organizers are responsible for providing data, evaluation, and baselines, for running the task, for collecting and reviewing system description papers, and for presenting the results at KONVENS 2027 on Sep. 06 (Mon) or Sep. 07 (Tue), 2027.
+
+System description papers will be published in the KONVENS 2027 proceedings, as in previous years. Individual participants may still submit non-archival papers or contribute a system without a paper.
+
+### Previous Shared Tasks
+
+- Named entity recognition (2014)
+- Lexical Substitution (2015)
+- Aspect-based Sentiment in Social Media Customer Feedback (2016)
+- Offensive Language (2018, 2019)
+- Hierarchical classification of blurbs (2019)
+- Lemmatization of German web and social media texts (2019)
+- Identification of Toxic, Engaging, and Fact-Claiming Comments (2021)
+- Text Complexity (2022)
+- Speaker Attribution (2023)
+- Sexism Detection in German Online News Fora (2024)
+- Candy speech detection (2025)
+- Harmful Content Detection in Social Media (2025)
+- LLMs4Subjects (2025)
+- Understanding Sustainability Reports (2025)
+- Harmful Content Detection in German Social Media (2026)
+
+For details, see [germeval.github.io/tasks](https://germeval.github.io/tasks/).
+
+### GermEval Submission Guidelines
+
+For GermEval, proposals are invited for any shared task involving natural language processing in the context of the German language. We particularly encourage tasks addressing different varieties of German, including regional varieties, dialects, and sociolects, as well as tasks related to the conference theme.
+
+In addition to the proposal, please fill in the detailed questionnaire available at [gscl.org/germeval](https://gscl.org/germeval).
+
+**GermEval shared task proposals should include:**
+
+1. Title, short name or acronym, and a description of the task, its motivation, and its relation to the KONVENS 2027 theme (if applicable).
+2. Task definition, including subtasks (if any), input and output formats, and example instances (which may be provided in an appendix).
+3. Description of the data: sources, size, languages or varieties, annotation procedure and quality, availability for training and testing, and licensing and ethical considerations.
+4. Evaluation measures and planned baseline systems.
+5. Planned timeline (data release, evaluation period, system description papers, reviewing), compatible with the KONVENS 2027 deadlines.
+6. Names, affiliations, short bios, and contact information of all organizers, with one designated contact person.
+
+Proposals should be submitted by Jan. 24 (Sun), 2027. The submission address will be announced on this page.
+
+### GermEval Tentative Schedule
+
+While fixing the exact timeline for the shared task is up to the task organizers, we propose the following tentative schedule:
+
+| GermEval Shared Tasks | Dates |
+| :--- | :--- |
+| **Proposal Deadline** | Jan. 24 (Sun), 2027 |
+| **Acceptance Notification** | Feb. 15 (Mon), 2027 |
+| **Trial Data Ready** (suggested) | Feb. 28 (Sun), 2027 |
+| **Training Data Ready** (suggested) | Mar. 15 (Mon), 2027 |
+| **Test Data Ready** (suggested) | Apr. 18 (Sun), 2027 |
+| **Evaluation Start** (suggested) | May 16 (Sun), 2027 |
+| **Evaluation End** (suggested) | May 31 (Mon), 2027 |
+| **Paper Submission Deadline** (suggested) | Jul. 01 (Thu), 2027 |
+| **Camera-Ready Deadline** | Aug. 01 (Sun), 2027 |
+
 ---
 
 ## Venue and Registration
