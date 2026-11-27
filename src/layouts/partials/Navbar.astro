@@ -25,8 +25,6 @@ const menus = groups.filter((group) => group.length > 0);
             <a class="text-lg font-bold" href="/">{CONFIG.name}</a>
         )}
 
-        <Search class="shrink-0" />
-
         <div class="flex min-w-0 items-center gap-8">
             <!-- desktop: in a row, horizontally scrollable within a section -->
             <div class:list={["hidden md:flex min-w-0 items-center gap-8", { "overflow-x-auto": section }]}>
@@ -38,7 +36,6 @@ const menus = groups.filter((group) => group.length > 0);
                 ))}
             </div>
 
-            <!-- mobile: toggled panel below the navbar -->
             <details class="md:hidden">
                 <summary class="cursor-pointer list-none hover:underline underline-offset-4 [&::-webkit-details-marker]:hidden">Menu</summary>
                 <div class="absolute inset-x-0 top-full z-20 mt-2 flex flex-col gap-4 bg-slate-100 p-4">
@@ -53,3 +50,8 @@ const menus = groups.filter((group) => group.length > 0);
         </div>
     </div>
 </nav>
+
+<!-- search: centered below the navbar, outside the nav so the mobile menu panel still opens directly beneath the navbar row -->
+<div class="container mx-auto px-4 flex justify-center">
+    <Search />
+</div>

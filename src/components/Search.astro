@@ -39,15 +39,16 @@ const hint = `Search ${new Intl.ListFormat("en").format(groups.map(({ label }) =
         aria-haspopup="dialog"
         data-search-open
         class:list={[
-            "not-prose inline-flex cursor-pointer items-center gap-2 px-2 py-1 italic text-slate-500 hover:border-slate-900 hover:text-slate-900",
+            // styled like the search input of the dialog, to invite typing
+            "not-prose flex w-full max-w-md min-w-0 cursor-pointer items-center gap-3 border-b-2 border-l-2 border-slate-400 px-3 py-2 text-left italic text-slate-500 hover:border-cyan-500 hover:text-slate-900 focus-visible:border-cyan-500 focus-visible:text-slate-900 focus-visible:outline-none",
             className,
         ]}
     >
-        <svg class="size-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+        <svg class="size-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
             <circle cx="11" cy="11" r="7" />
             <path d="m20 20-4-4" />
         </svg>
-        <span class="sr-only sm:not-sr-only">search</span>
+        <span class="min-w-0 truncate">{hint} …</span>
     </button>
 
     <dialog
